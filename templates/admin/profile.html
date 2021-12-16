@@ -1,0 +1,118 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h4 class="text-themecolor">Profile</h4>
+            </div>
+           
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <center class="m-t-30"> <img src="/static/uploads/profilePhoto.jpeg" class="img-circle"
+                                width="150" />
+                            <h4 class="card-title m-t-10">{{prof.prof_name}}</h4>
+                            
+                            
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-7">
+                <div class="card">
+                    <!-- Tab panes -->
+                    <div class="card-body">
+                        <form action="/admin" class="form-horizontal form-material" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="col-md-12">Full Name</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="prof_name" placeholder="Full Name" value="{{prof.prof_name}}"
+                                        class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Age</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="prof_age" placeholder="Age" value="{{prof.prof_age}}"
+                                        class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Phone No</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="+994..." name="prof_phone" value="{{prof.prof_phone}}"
+                                        class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-email" class="col-md-12">E-mail</label>
+                                <div class="col-md-12">
+                                    <input type="email" placeholder="E-mail"
+                                        class="form-control form-control-line" name="prof_email" value="{{prof.prof_email}}"
+                                        >
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="form-group">
+                                <label for="example-email" class="col-md-12">Address</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Address"
+                                        class="form-control form-control-line" name="prof_address" value="{{prof.prof_address}}"
+                                        >
+                                </div>
+                            </div>
+                            <label class="col-md-12 mb-3">Hello</label>
+                            <div class="form-group">
+                                <!-- <label class="col-md-12 mb-5">Hello</label> -->
+                                
+                                <!-- <input type="text" class="form-control form-control-line"  name="hello_text" value="{{prof.hello_text}}">  -->
+                                <textarea name="hello_text" id="hello" required></textarea>
+                            </div>
+                            <label class="col-md-12 mb-3" style="margin-bottom:50px;">About</label>
+                            <div class="form-group">
+                                
+                                <!-- <input type="text" class="form-control form-control-line"  name="about_text" value="{{prof.about_text}}">  -->
+                                <textarea name="about_text" id="about" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success">Update Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <!-- Row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+
+{% endblock %}

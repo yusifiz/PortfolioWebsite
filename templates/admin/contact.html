@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="container my-5">
+    <div class="row">
+        <!-- column -->
+        <div class="col-12">
+            <h2>Messages</h2>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Messages Table</h4>
+                    <h6 class="card-subtitle">Add message <code>.table</code></h6>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>E-mail</th>
+                                    <th>Message</th>
+                                    <th>Delete</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for msg in messages %}
+                                <tr>
+                                    <td>{{msg.id}}</td>
+                                    <td>{{msg.contact_name}}</td>
+                                    <td>{{msg.contact_email}}</td>
+                                    <td>{{msg.message}}</td>
+                                    <td><a href="/contactDelete/{{msg.id}}"><i class="bi bi-trash-fill"></i></a></td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

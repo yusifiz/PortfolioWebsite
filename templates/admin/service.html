@@ -1,0 +1,85 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="mb-5" action="/adminhome" method="POST">
+                        <h2>Add new education</h2>
+                        <hr>
+                        <div class="mb-3">
+                          
+                          <input type="text" class="form-control" name="service_title" placeholder="Service title..">
+                          
+                        </div>
+                        <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="service_description" placeholder="Service description..">
+                            
+                          </div>
+
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                      </form>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Education Table</h4>
+                        <h6 class="card-subtitle">Add education <code>.table</code></h6>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Service Name</th>
+                                        <th>Service description</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for s in services %}
+                                    <tr>
+                                        <td>{{s.id}}</td>
+                                        <td>{{s.service_title}}</td>
+                                        <td>{{s.service_description}}</td>
+                                        <td><a href="/adminhome/update/{{s.id}}"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td><a href="/adminhome/delete/{{s.id}}"><i class="bi bi-trash-fill"></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

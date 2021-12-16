@@ -1,0 +1,95 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="mb-5" action="/admin/blog" method="POST" enctype="multipart/form-data">
+                        <h2>Add new blog</h2>
+                        <hr>
+                        <div class="mb-3">
+                          
+                          <input type="text" class="form-control" name="blog_name" placeholder="Blog name..">
+                          
+                        </div>
+                        <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="blog_url" placeholder="Blog link..">
+                            
+                          </div>
+                        <div class="mb-3">
+                          
+                            <input type="date"  class="form-control" name="blog_dateTime">
+                            
+                          </div>
+                        <div class="mb-3">
+                          
+                          <input type="file" name="blog_img" class="form-control btn btn-warning" >
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                      </form>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Blogs Table</h4>
+                        <h6 class="card-subtitle">Add blog <code>.table</code></h6>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Link</th>
+                                        <th>Date</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for blog in blogs %}
+                                    <tr>
+                                        <td>{{blog.id}}</td>
+                                        <td>{{blog.blog_name}}</td>
+                                        <td>{{blog.blog_url}}</td>
+                                        <td>{{blog.blog_dateTime}}</td>
+                                        <td><a href="/blogUpdate/{{blog.id}}"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td><a href="/blogDelete/{{blog.id}}"><i class="bi bi-trash-fill"></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

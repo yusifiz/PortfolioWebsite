@@ -1,0 +1,56 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="mb-5" action="/blogUpdate/{{blogs.id}}" method="POST">
+                        <h2>Update blog</h2>
+                        <hr>
+                        <div class="mb-3">
+                          
+                          <input type="text" class="form-control" name="blog_name" value="{{blogs.blog_name}}" placeholder="Blog name..">
+                          
+                        </div>
+                        <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="blog_url" value="{{blogs.blog_url}}" placeholder="Blog link..">
+                            
+                          </div>
+                          <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="blog_dateTime" value="{{blogs.blog_dateTime}}">
+                            
+                          </div>
+                        
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                      </form>
+                      
+                </div>
+            </div>
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

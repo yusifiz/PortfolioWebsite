@@ -1,0 +1,88 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="mb-5" action="/admin/projects" method="POST" enctype="multipart/form-data">
+                        <h2>Add new project</h2>
+                        <hr>
+                        <div class="mb-3">
+                          
+                          <input type="text" class="form-control" name="project_name" placeholder="Project name..">
+                          
+                        </div>
+                        <div class="mb-3">
+                          
+                            <input type="text" class="form-control" name="project_url" placeholder="Project link..">
+                            
+                          </div>
+                        <div class="mb-3">
+                          
+                          <input type="file" class="form-control btn btn-warning" name="project_img">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
+                      </form>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- column -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Projects Table</h4>
+                        <h6 class="card-subtitle">Add project <code>.table</code></h6>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Link</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for project in projects %}
+                                    <tr>
+                                        <td>{{project.id}}</td>
+                                        <td>{{project.project_name}}</td>
+                                        <td>{{project.project_url}}</td>
+                                        <td><a href="/projectUpdate/{{project.id}}"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td><a href="/projectDelete/{{project.id}}"><i class="bi bi-trash-fill"></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}
